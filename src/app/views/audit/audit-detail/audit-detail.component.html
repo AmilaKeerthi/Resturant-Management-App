@@ -1,0 +1,129 @@
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4" class="border rounded-0 border-dark border-3">
+      <c-card-header class="border rounded-0 border-dark fw-semibold text-light bg-dark fs-5 py-0">Audit Detail>{{title}}</c-card-header>
+      <c-card-body>
+
+        <c-row class="mb-3">
+          <c-col sm="5">
+
+            <button cButton class="btn btn-gradient-ocean-blue float-start">
+              <svg cIcon class="me-2" name="cil-print"></svg> Print</button>
+
+          </c-col>
+          <c-col class="d-md-block" sm="7">
+            <a cButton class="btn btn-gradient-green float-end" routerLink="./details">
+              Start New Audit
+            </a>
+          </c-col>
+        </c-row>
+        <c-row class="mb-2">
+
+          <c-col class="d-md-block" sm="4">
+
+            <select aria-label="Default select example" class="float-end w-100" cSelect>
+              <option>Audit - March 29, 2021</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+          </c-col>
+          <c-col sm="8">
+
+          </c-col>
+        </c-row>
+        <table cTable [hover]="true" [responsive]="true" [align]="'middle'" cTable class="mb-0 border">
+          <thead>
+            <tr bordered cTableColor="light" class="border-start border-end border-bottom-dark">
+              <th scope="col">
+                <c-form-check>
+                  <input cFormCheckInput id="checkOne" type="checkbox" />
+                </c-form-check>
+              </th>
+              <th scope="col">Stock Item</th>
+              <th scope="col">Chargable</th>
+              <th scope="col" colSpan="2">Counting UOM</th>
+              <th scope="col" colSpan="2">Transfering UOM</th>
+              <th scope="col" colSpan="2">Purchasing UOM</th>
+              <th scope="col">Total Count</th>
+              <th scope="col">Unit Count</th>
+            </tr>
+          </thead>
+          <thead cTableColor="secondary" class="border-top border-top-2 border-top">
+            <tr class="border-start border-end fw-semibold py-2 ">
+              <th scope="col" colSpan="2"></th>
+              <th scope="col" colSpan="1"></th>
+              <th scope="col" colSpan="1">Unit</th>
+              <th scope="col" colSpan="1">Count</th>
+              <th scope="col" colSpan="1">Unit</th>
+              <th scope="col" colSpan="1">Count</th>
+              <th scope="col" colSpan="1">Unit</th>
+              <th scope="col" colSpan="1">Count</th>
+              <th scope="col" colSpan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-start border-end border-bottom fw-semibold" cTableColor="light">
+              <th scope="row">
+                <c-form-check>
+                  <input cFormCheckInput id="checkOne" type="checkbox" />
+                </c-form-check>
+              </th>
+              <td>No Storage Area</td>
+              <td colSpan="7"></td>
+              <td> $0.00</td>
+              <td> </td>
+            </tr>
+            <tr class="border-start border-end border fw-semibold" cTableColor="light">
+              <th scope="row">
+              </th>
+              <td>Uncategorized</td>
+              <td colSpan="7"></td>
+              <td> $0.00</td>
+              <td> </td>
+            </tr>
+            <tr class="border-start border-end" *ngFor="let item of tableData; index as i; last as isLast">
+              <th scope="row">
+              </th>
+              <td>{{ item.StockItem }}</td>
+              <td>
+                <svg *ngIf="item.Chargeable" cIcon class="me-2 text-success" name="cil-check" ></svg>
+                <span *ngIf="!item.Chargeable" class="me-2 text-danger fw-semibold">X</span>
+              </td>
+              <td >{{ item.CountingUOM.unit }}</td>
+              <td>
+                <input cFormControl id="inputCost" class="table-input-count border rounded-0 border-dark border-2" [value]="item.CountingUOM.cost" type="number" sizing="sm" />
+              </td>
+              <td>{{ item.TransferringUOM.unit }}</td>
+              <td>
+                <input cFormControl id="inputCost" class="table-input-count border rounded-0 border-dark border-2" [value]="item.TransferringUOM.cost" type="number" sizing="sm" />
+              </td>
+              <td>{{ item.PurchasingUOM.unit }}</td>
+              <td>
+                <input cFormControl id="inputCost" class="table-input-count border rounded-0 border-dark border-2" [value]="item.PurchasingUOM.cost" type="number" sizing="sm" />
+              </td>
+              <td>{{ item.TotalCount }}</td>
+              <td>{{ item.unitCost| currency }}</td>
+            </tr>
+          </tbody>
+
+          <thead class="border-top border-top-5">
+            <tr bordered cTableColor="light" class="border-start border-end fw-semibold py-2 border-top-1 border-top-dark">
+              <th scope="col" colSpan="3"> {{title}} Total</th>
+              <th scope="col" colSpan="2" class="border-end">0.0 Base Units</th>
+              <th scope="col" colSpan="2">$0.00 Value</th>
+              <th scope="col" colSpan="4" class="border-end"></th>
+            </tr>
+          </thead>
+        </table>
+
+        <c-row [gutter]="3" class="align-items-center mt-3">
+          <c-col xs="12">
+            <button cButton class="btn btn-gradient-gray float-end">Done</button>
+          </c-col>
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

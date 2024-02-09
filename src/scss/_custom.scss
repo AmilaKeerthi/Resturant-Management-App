@@ -1,0 +1,35 @@
+// Here you can add other styles
+
+
+.btn-gradient-green {
+  background-color: #88d57f; /* Fallback color */
+  background-image: linear-gradient(180deg, #88d57f 10%, #63c55d 100%);
+  color: #ffffff; /* Text color */
+  border-color: #88d57f; /* Border color */
+}
+
+.btn-gradient-green:hover {
+  background-color: #b4d4bc; /* Change to the same color as background-image on hover */
+}
+
+.btn-gradient-ocean-blue {
+  background-color: #6fb2ff; /* Fallback color */
+  background-image: linear-gradient(180deg, #6fb2ff 10%, #3283f9 100%);
+  color: #ffffff; /* Text color */
+  border-color: #6fb2ff; /* Border color */
+}
+
+.btn-gradient-ocean-blue:hover {
+  background-color: #007bff; /* Change to the same color as background-image on hover */
+}
+
+.btn-gradient-gray {
+  background-color: #6c757d; /* Fallback color */
+  background-image: linear-gradient(180deg, #6c757d 10%, #343a40 100%);
+  color: #ffffff; /* Text color */
+  border-color: #6c757d; /* Border color */
+}
+
+.btn-gradient-gray:hover {
+  background-color: #6c757d; /* Change to the same color as background-image on hover */
+}

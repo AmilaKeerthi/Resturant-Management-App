@@ -1,0 +1,131 @@
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4" class="border rounded-0 border-dark border-3">
+      <c-card-header class="border rounded-0 border-dark fw-semibold text-light bg-dark fs-5 py-0">Audit Summary</c-card-header>
+      <c-card-body>
+        <c-row class="mb-2">
+          <c-col sm="8">
+            <!-- <div class="small text-medium-emphasis">Audit - june 9, 2021</div> -->
+            <p class="text-medium-emphasis small fw-semibold fs-6">
+              Audit - june 9, 2021
+            </p>
+          </c-col>
+          <c-col class="d-md-block" sm="4">
+
+            <select aria-label="Default select example" class="float-end w-100" cSelect>
+              <option>Audit - March 29, 2021</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+
+          </c-col>
+        </c-row>
+        <c-row class="mb-3">
+          <c-col sm="5">
+
+            <button cButton class="btn btn-gradient-ocean-blue float-start">
+              <svg cIcon class="me-2" name="cil-print"></svg> Print</button>
+
+          </c-col>
+          <c-col class="d-md-block" sm="7">
+            <a cButton class="btn btn-gradient-green float-end" routerLink="./details">
+              Start New Audit
+            </a>
+          </c-col>
+        </c-row>
+        <table cTable [hover]="true" [responsive]="true" [align]="'middle'" cTable class="mb-0 border">
+          <thead>
+            <tr bordered cTableColor="secondary" class="border-start border-end border-bottom-dark">
+              <th scope="col">
+                <c-form-check>
+                  <input cFormCheckInput id="checkOne" type="checkbox" />
+                </c-form-check>
+              </th>
+              <th scope="col">Location</th>
+              <th scope="col">Items</th>
+              <th scope="col">Status</th>
+              <th scope="col">Expected QOH</th>
+              <th scope="col">Audit QOH</th>
+              <th scope="col">Audit Value</th>
+              <th scope="col">Varience</th>
+              <th scope="col">Varience Value</th>
+              <th scope="col">Actions</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-start border-end border-light fw-semibold" cTableColor="light">
+              <th scope="row">
+                <c-form-check>
+                  <input cFormCheckInput id="checkOne" type="checkbox" />
+                </c-form-check>
+              </th>
+              <td>uncategorized</td>
+              <td colSpan="8"></td>
+
+            </tr>
+            <tr class="border-start border-end" *ngFor="let item of tableData; index as i; last as isLast">
+              <th scope="row">
+                <c-form-check>
+                  <input cFormCheckInput id="checkOne" type="checkbox" />
+                </c-form-check>
+              </th>
+              <td>{{item.location}}</td>
+              <td>{{item.items}}</td>
+              <td>
+                <c-progress class="my-1">
+                  <c-progress-bar [color]="item.status==0?'secondary':item.status==100?'success':'danger'"
+                    [value]="item.status==0?100:item.status">{{item.status}}%</c-progress-bar>
+                </c-progress>
+              </td>
+              <td>{{item.expectedQoh}}</td>
+              <td>{{item.auditQoh}}</td>
+              <td>{{item.auditValue}}</td>
+              <td>{{item.variance}}</td>
+              <td>{{item.varianceValue}}</td>
+              <td>
+                <a cButton color="primary" variant="ghost" class="p-0" routerLink="./details">
+                  Edit
+                </a>
+                | <button cButton color="primary" variant="ghost" class="p-0">Refresh</button>
+              </td>
+            </tr>
+          </tbody>
+
+          <thead class="border-top border-top-5 border-top-dark">
+            <tr bordered cTableColor="secondary" class="border-start border-end fw-semibold py-2">
+              <th scope="col" colSpan="2">Venue Totals</th>
+              <th scope="col" colSpan="2" class="border-end">0.0 Audit QOH</th>
+              <th scope="col" colSpan="2" class="border-end">$0.00 Audit QOH</th>
+              <th scope="col" colSpan="2" class="border-end">-8.0 Variance Units</th>
+              <th scope="col" colSpan="2">$17.35 Variance Value</th>
+            </tr>
+          </thead>
+        </table>
+
+        <c-row [gutter]="3" class="align-items-center mt-3">
+          <c-col xl="5" md="12">
+            <!-- <div class="small text-medium-emphasis">Audit - june 9, 2021</div> -->
+            <button cButton class="btn btn-gradient-gray float-start">Cancel</button>
+
+          </c-col>
+          <c-col  xl="3" md="6" xs="12">
+            <label cLabel for="AdjustInventory"  class="float-end" >Select Inventory to Adjust:</label>
+          </c-col>
+          <c-col  xl="2" md="6" xs="12">
+            <select id="AdjustInventory" class="float-end" aria-label="Default select example" cSelect>
+              <option>Ajust All Inventory</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </c-col>
+          <c-col xl="2" lg="12" md="12" xs="12">
+            <button cButton class="btn btn-gradient-green float-end">Finalize Audit</button>
+          </c-col>
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
