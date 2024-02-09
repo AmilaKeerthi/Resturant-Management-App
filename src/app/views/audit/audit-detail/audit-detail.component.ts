@@ -60,24 +60,6 @@ export class AuditDetailComponent {
       PurchasingUOM: { unit: "Each", cost: 5 },
       TotalCount: "",
       unitCost: 0.00
-    },
-    {
-      StockItem: "Small Cup",
-      Chargeable: true,
-      CountingUOM: { unit: "Each", cost: 5 },
-      TransferringUOM: { unit: "Each", cost: 5 },
-      PurchasingUOM: { unit: "Each", cost: 5 },
-      TotalCount: "",
-      unitCost: 0.00
-    },
-    {
-      StockItem: "Steak",
-      Chargeable: true,
-      CountingUOM: { unit: "Each", cost: 5 },
-      TransferringUOM: { unit: "Each", cost: 5 },
-      PurchasingUOM: { unit: "Each", cost: 5 },
-      TotalCount: "",
-      unitCost: 0.00
     }
   ];
 title: string ="Kaye's Bakery and Sweets";
